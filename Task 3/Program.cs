@@ -8,14 +8,31 @@ namespace Task_3
 {
     class Program
     {
+
+        /// <summary>
+        /// Проверка ввода целых чисел
+        /// </summary>
+        /// <returns>Целое число</returns>
+        public static double ReadDoubly()
+        {
+            double k = 0; bool ok;
+            do
+            {
+                ok = double.TryParse(Console.ReadLine(), out k);
+                if (!ok) Console.WriteLine("Неправильный ввод. Ожидалось целое число. Пожалуйста, повторите ввод");
+            }
+            while (!ok);
+            return k;
+        }
+
         static void Main(string[] args)
         {
             // Считываем значение x
             Console.WriteLine("Введите x");
-            double x = double.Parse(Console.ReadLine());
+            double x = ReadDoubly();
             // Считываем значение y
             Console.WriteLine("Введите y");
-            double y = double.Parse(Console.ReadLine());
+            double y = ReadDoubly();
             double u = 0;       // Результат
 
             // Вычисляем значение u в зависимости от принадлежности точки зашрихованной области
